@@ -19,6 +19,8 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x = this.x + this.speed*dt;
 
+    //collision detection
+
     if (this.x < player.x + 65 &&
         this.x + 75 > player.x &&
         this.y < player.y + 70 &&
@@ -57,6 +59,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//input handler
 Player.prototype.handleInput = function(key) {
     var charlist = ['images/char-boy.png','images/char-princess-girl.png'];
     if (key == 'left' && this.x > 50) {
@@ -75,7 +78,7 @@ Player.prototype.handleInput = function(key) {
 Player.prototype.reset = function() {
     this.x = 202;
     this.y = 405;
-}
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
